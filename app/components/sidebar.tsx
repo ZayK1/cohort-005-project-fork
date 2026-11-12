@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { cn } from "~/lib/utils";
 import { UserRole } from "~/db/schema";
 import { UserAvatar } from "~/components/user-avatar";
+// PROTOTYPE (bell + Inbox)
+import { VariantABell } from "~/components/prototype-bell-inbox/variant-a-dropdown";
+import { VariantBNavItem } from "~/components/prototype-bell-inbox/variant-b-page";
 import {
   BookOpen,
   ChartColumn,
@@ -140,9 +143,11 @@ export function Sidebar({
         <NavLink to="/" className="text-lg font-bold tracking-tight">
           Cadence
         </NavLink>
+        <VariantABell />
       </div>
 
       <nav className="flex-1 space-y-1 p-3">
+        <VariantBNavItem />
         {navItems
           .filter((item) => isVisible(item, currentUserRole))
           .map((item) => (
